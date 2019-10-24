@@ -38,5 +38,9 @@ class QuinielaController extends Controller
       return view('quiniela.perfil');
     }
 
+    public function admin(){
+      return view('admin');
+    }
+
 
 }

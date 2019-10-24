@@ -28,7 +28,12 @@ class HomeController extends Controller
 
     public function index(Request $request)
     {
-        $request->user()->authorizeRoles(['user', 'admin']);
-        return view('home');
+      $hola = $request->user()->authorizeRoles(['user', 'admin']);
+      //dd($hola->name);
+      if ($hola->name == 'admin') {
+        return redirect()->route('admin');
+      }else{
+        return redirect()->route('perfil');
+      }
     }
 }

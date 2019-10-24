@@ -57,7 +57,7 @@
               </form>
             </div>
             <div class="card-form card-form-register">
-              <form class="rd-form rd-mailform" data-form-output="form-output-global" data-form-type="contact" method="post" action="{{route('register')}}">
+              <form class="rd-form rd-mailform"  method="post" action="{{route('register')}}">
                 @csrf
                 <div class="form-wrap">
                   <label class="form-label" for="form-register-nombre">Nombre</label>

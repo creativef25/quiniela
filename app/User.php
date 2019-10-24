@@ -1,6 +1,7 @@
 <?php
 
 namespace App;
+use App\Role;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -16,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'id','name', 'email', 'password',
     ];
 
     /**
@@ -28,38 +29,38 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function roles(){
-        return $this->belongsToMany(Role::class)->withTimestamps();
-    }
+    public function roles()
+   {
+       return $this->belongsToMany(Role::class)->withTimestamps();
+   }
 
-    public function authorizeRoles($roles){
-      if ($this->hasAnyRole($roles)) {
-        return true;
-      }
-      abort(401, 'Esta acción no está autorizada.');
-    }
-
-    public function hasAnyRole($roles){
-      if (is_array($roles)) {
+   public function authorizeRoles($roles)
+{
+    abort_unless($hola2 = $this->hasAnyRole($roles), 401);
+    return $hola2;
+}
+public function hasAnyRole($roles)
+{
+    if (is_array($roles)) {
         foreach ($roles as $role) {
-            if ($this->hasRole($role)) {
-                return true;
+            if ($hola1 =$this->hasRole($role)) {
+                return $hola1;
             }
         }
-      } else {
+    } else {
         if ($this->hasRole($roles)) {
-            return true;
+             return true;
         }
-      }
-      return false;
     }
-
-    public function hasRole($role){
-      if ($this->roles()->where('name', $role)->first()) {
-        return true;
-      }
-      return false;
+    return false;
+}
+public function hasRole($role)
+{
+    if ($hola = $this->roles()->where('name', $role)->first()) {
+        return $hola;
     }
+    return false;
+}
 
 
 }
