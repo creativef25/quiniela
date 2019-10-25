@@ -42,5 +42,9 @@ class QuinielaController extends Controller
       return view('admin');
     }
 
+    public function datos(){
+      return view('quiniela.datos');
+    }
+
 
 }

@@ -79,7 +79,7 @@
                 </div>
               </article>
               <ul class="list-statictics">
-                <li><a href="#">Opcion 1</a></li>
+                <li><a href="{{ route('datos')}}">Datos Personales</a></li>
                 <li><a href="#">Opcion 2</a></li>
                 <li><a href="#">Opcion 3</a></li>
               </ul>
