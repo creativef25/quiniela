@@ -25,44 +25,29 @@
               </div>
             </div>
             <div class="player-info-main">
-              <h4 class="player-info-title">Israel Hernandez</h4>
+              <h4 class="player-info-title">{{ !empty($datos->nombre) ? $datos->nombre : 'Nombre'}} {{ !empty($datos->apePaterno) ? $datos->apePaterno : 'Apellido Materno'}}</h4>
               <hr/>
               <div class="player-info-table">
                 <div class="table-custom-wrap">
                   <table class="table-custom">
                     <tr>
                       <th>Años</th>
-                      <th>20</th>
-                      <th>Estatura</th>
-                      <th>1.70</th>
+                      <th>{{ !empty($datos->edad) ? $datos->edad : 'Edad'}}</th>
+                      <th>Telefono</th>
+                      <th>{{ !empty($datos->telefono) ? $datos->telefono : 'Telefono'}}</th>
                     </tr>
                     <tr>
-                      <td>Peso</td>
-                      <td>68 k</td>
-                      <td>Total de Juegos</td>
+                      <td>Ciudad</td>
+                      <td>{{ !empty($datos->ciudad) ? $datos->ciudad : 'Ciudad'}}</td>
+                      <td>Total de Quinielas</td>
                       <td>10</td>
+                    </tr>
+                    <tr>
+                      <td>Calle</td>
+                      <td>{{ !empty($datos->calle) ? $datos->calle : 'Calle'}}</td>
                     </tr>
                   </table>
                 </div>
-              </div>
-              <hr/>
-              <div class="player-info-progress">
-                <article class="progress-linear progress-bar-modern">
-                  <div class="progress-header">
-                    <p>Pases a Gol</p>
-                  </div>
-                  <div class="progress-bar-linear-wrap">
-                    <div class="progress-bar-linear"></div>
-                  </div><span class="progress-value">95</span>
-                </article>
-                <article class="progress-linear progress-bar-modern">
-                  <div class="progress-header">
-                    <p>Goles</p>
-                  </div>
-                  <div class="progress-bar-linear-wrap">
-                    <div class="progress-bar-linear"></div>
-                  </div><span class="progress-value">70</span>
-                </article>
               </div>
             </div>
           </div>
@@ -80,7 +65,7 @@
               </article>
               <ul class="list-statictics">
                 <li><a href="{{ route('datos')}}">Datos Personales</a></li>
-                <li><a href="#">Opcion 2</a></li>
+                <li><a href="#">Mis Pagos</a></li>
                 <li><a href="#">Opcion 3</a></li>
               </ul>
             </div>

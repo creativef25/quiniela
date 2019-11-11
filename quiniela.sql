@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 01-10-2019 a las 23:33:13
+-- Tiempo de generación: 10-11-2019 a las 23:43:52
 -- Versión del servidor: 5.7.25-0ubuntu0.16.04.2
 -- Versión de PHP: 7.1.26-1+ubuntu16.04.1+deb.sury.org+1
 
@@ -19,6 +19,34 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `quiniela`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `datos`
+--
+
+CREATE TABLE `datos` (
+  `nombre` varchar(255) NOT NULL,
+  `apePaterno` varchar(255) NOT NULL,
+  `apeMaterno` varchar(255) NOT NULL,
+  `edad` int(11) NOT NULL,
+  `calle` varchar(255) NOT NULL,
+  `alcaldia` varchar(255) NOT NULL,
+  `ciudad` varchar(255) NOT NULL,
+  `CP` int(11) NOT NULL,
+  `telefono` text NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `updated_at` date NOT NULL,
+  `created_at` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `datos`
+--
+
+INSERT INTO `datos` (`nombre`, `apePaterno`, `apeMaterno`, `edad`, `calle`, `alcaldia`, `ciudad`, `CP`, `telefono`, `id_user`, `updated_at`, `created_at`) VALUES
+('Israel', 'Hernandez', 'Olvera', 25, 'Junta de Zitacuaro Remanente 2 24 e', 'Iztapalapa', 'CDMX', 9180, '57327915', 1, '2019-11-11', '2019-11-11');
 
 -- --------------------------------------------------------
 
@@ -234,7 +262,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'User', 'user@example.com', NULL, '$2y$10$fxHvziQWrh5JTUw6UnRsCe9LznaCO7ftiPWGNgtRYs3yHZ.vSWqx2', NULL, '2019-09-08 02:26:15', '2019-09-08 02:26:15'),
+(1, 'User', 'user@example.com', NULL, '$2y$10$fxHvziQWrh5JTUw6UnRsCe9LznaCO7ftiPWGNgtRYs3yHZ.vSWqx2', 'w0lmF6sbeOYBfYsb7o6bFyBCln3o76FBydjuDhqZcbLxM8ljDXAqEkrZ5RFV', '2019-09-08 02:26:15', '2019-09-08 02:26:15'),
 (2, 'Admin', 'admin@example.com', NULL, '$2y$10$SnP0b./kg72AmmgZYsuFrOo/hjURJ5tEQY3/rmZR.vsjjRlMCm7M.', NULL, '2019-09-08 02:26:15', '2019-09-08 02:26:15');
 
 --

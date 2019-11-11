@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Partidos;
 use App\Equipos;
 use App\Quiniela;
+use App\Datos;
 
 class QuinielaController extends Controller
 {
@@ -35,7 +37,8 @@ class QuinielaController extends Controller
     }
 
     public function perfil(){
-      return view('quiniela.perfil');
+      $datos = Datos::where('id_user', Auth::id())->first();
+      return view('quiniela.perfil', compact('datos'));
     }
 
     public function admin(){
@@ -43,7 +46,29 @@ class QuinielaController extends Controller
     }
 
     public function datos(){
-      return view('quiniela.datos');
+      $datos = Datos::where('id_user', Auth::id())->first();
+      return view('quiniela.datos', compact('datos'));
+    }
+
+    public function guardarDatos(Request $request){
+
+      $dato = new Datos();
+      $dato->nombre = $request->nombre;
+      $dato->apePaterno = $request->apePaterno;
+      $dato->apeMaterno = $request->apeMaterno;
+      $dato->edad = $request->edad;
+      $dato->calle = $request->calle;
+      $dato->alcaldia = $request->alcaldia;
+      $dato->ciudad = $request->ciudad;
+      $dato->CP = $request->cp;
+      $dato->telefono = $request->telefono;
+      $dato->id_user = Auth::id();
+      $dato->updated_at = date('Y-m-d');
+      $dato->created_at = date('Y-m-d');
+      $dato->save();
+
+      return redirect()->route('perfil');
+
     }
 
 

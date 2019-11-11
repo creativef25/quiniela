@@ -27,6 +27,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => ['auth', 'rol:user']], function(){
   Route::get('perfil', 'QuinielaController@perfil')->name('perfil');
   Route::get('datos', 'QuinielaController@datos')->name('datos');
+  Route::post('guardarDatos', 'QuinielaController@guardarDatos')->name('guardarDatos');
 });
 
 Route::group(['middleware' => ['auth', 'rol:admin']], function(){
